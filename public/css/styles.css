@@ -1,78 +1,70 @@
-* {
-  /* This directive changes every element's padding behavior. */
-  /* Widths will be *inclusive* of padding and borders, which makes them more predictable. */
-  box-sizing: border-box;
-}
-
-body {
-  /* These text styles will cascade through every child of the body, unless they are overridden. */
-  /* If Arial is not found, use the browser's fallback sans-serif font. */
-  font-family: Arial, sans-serif;
-  color: #000000;
-
+*{
   margin: 0;
-  padding: 0;
 }
-
-.site-view {
-  /* This lets us arrange the child elements of the main view in a row. */
-  display: flex;
-  flex-direction: row;
+body{
+  background: linear-gradient(to right, #5f72ff, #7bfefa);
 }
-
-nav {
-  /* The `flex` attribute controls the width of the column *relative* to other columns. */
-  /* Since the total `flex` attributes sum to 10, the nav will take up 20% of the horizontal width. */
-  flex: 2;
-
-  background-color: #ed2828;
+.title{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  letter-spacing: 0.8px;
+  font-weight: 700;
   text-align: center;
-  padding: 10px;
+  cursor: pointer;
+  animation: fadeInSlideIn 2s ease-in-out;
 }
-
-/* Style all link tags within nav elements */
-nav a {
-  background-color: #28ed31;
-  padding: 8px;
-  margin-top: 7px;
-  display: block;
-  width: 100%;
-  color: black;
+.title:hover{
+  letter-spacing: 2px;
+  transition: 1s;
 }
-
-/* Makes sure affected elements don't exceed the bounds of their container. */
-/* Handy for images! */
-.responsive {
-  max-width: 100%;
-  max-height: 100%;
-}
-
-/* This can be handy for centering content, but doesn't work if we don't set */
-/* the width of the element first. */
-/* Flexbox is a lot more, well, flexible! */
-.centered {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-main {
-  background-color: #dd2118;
-  flex: 6;
-  padding: 0 20px;
-}
-
-footer {
-  background-color: #49cad2;
-  flex: 2;
-  padding: 15px;
-}
-
-@media only screen and (max-width: 720px) {
-  /* For mobile phones. Try resizing your browser window or using developer tools to trigger this responsive layout! */
-  .site-view {
-    /* The main sections are still in a Flexbox layout; this just changes the Flexbox configuration */
-    /* so that adjacent elements will render vertically instead of horizontally. */
-    flex-direction: column;
+@keyframes fadeInSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px);
   }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media screen and (max-width:576px) {
+  .title{
+    font-size: 25px;
+    font-weight: 700;
+  }
+}
+header{
+  border-bottom: 2px solid grey;
+  box-shadow: 1px 1.3px 2px grey;
+  padding: 20px;
+}
+
+form{
+  margin: auto;
+  padding-left: 40px;
+}
+
+form {
+  animation: formFadeIn 2s ease-in-out;
+}
+@keyframes formFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.vehicle{
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.totalDistance{
+  padding: 9px;
+  border-radius: 5px;
+}
+.errorMessage{
+  color: red;
 }
